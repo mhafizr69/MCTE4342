@@ -14,7 +14,7 @@
 <img src="https://github.com/mhafizr69/MCTE4342/blob/main/Week_4/Example_8/Setup_8.png">
 </details>
 
-## Example 9: 
+## Example 9: 8 LED with different blink timings programmed using pure C.
 
 <details>
 <summary>SETUP</summary>
