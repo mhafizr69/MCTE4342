@@ -11,7 +11,7 @@
 
 <details>
 <summary>SETUP</summary>
-<img src="https://github.com/mhafizr69/MCTE4342/blob/main/Week_4/Example_8/Setup_8.jpg">
+<img src="https://github.com/mhafizr69/MCTE4342/blob/main/Week_4/Example_8/Setup_8.png">
 </details>
 
 ## Example 9: 
