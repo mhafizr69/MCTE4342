@@ -26,7 +26,6 @@ void loop() {
   if (val == LOW)
   {
         state = !state;
-
   }
   
   //Serial.println(state);
