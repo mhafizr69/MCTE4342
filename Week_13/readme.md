@@ -8,8 +8,10 @@
 - Simple and effective  
 - The resistance of the bottom resistor is twice of the top one.
 
+<details>
 ![Voltage Divider](./VoltageDivider.png)
-
+</details>
+  
 ### Transistor-based techniques
 
 - High-side switching  
