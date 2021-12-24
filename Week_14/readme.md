@@ -1,4 +1,4 @@
 
 # Design Choices
 
-![Comparison between controllers](/Week_14/Comparison%20Table)
+![Comparison between controllers](./Comparison%20Table.png)
