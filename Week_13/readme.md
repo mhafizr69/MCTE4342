@@ -6,25 +6,22 @@
 ### Voltage divider
 
 - Simple and effective  
-- The resistance of the bottom resistor is twice of the top one.
+- The resistance of the bottom resistor is twice of the top one.  
 
-<details>
-![Voltage Divider](./VoltageDivider.png)
-</details>
-  
+<img src="VoltageDivider.png" width="720" height="480">
+
 ### Transistor-based techniques
 
 - High-side switching  
 - Choose base resistor size to ensure saturation mode (may not be 1K)  
 
-![Transistor](./TransistorBased.png)
-
+<img src="TransistorBased.png" width="720" height="480">
 
 ### Zener diode
 
 - The voltage drop of the Zenerdiode is 3.3V.  
 
-![Zener Diode](./ZenerDiode.png)
+<img src="ZenerDiode.png" width="720" height="480">
 
 ## Up-shifting logic levels
 
@@ -34,8 +31,9 @@
 - Each transistor acts as an inverter  
 - Choose base resistor size to ensure saturation mode (may not be 1K)  
 
-![Double Transistor](./DoubleTransistor.png)
+<img src="DoubleTransistor.png" width="720" height="480">
 
 ### Single transistor techniques
 
-![Single Transistor](./SingleTransistor.png)
+<img src="SingleTransistor.png" width="720" height="480">
+
