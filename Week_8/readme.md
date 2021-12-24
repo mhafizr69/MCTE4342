@@ -25,7 +25,7 @@
 - EEPROM Put: Put values in EEPROM using variable semantics.  
 - EEPROM Update: Stores values read from A0 into EEPROM, writing the value only if different, to increase EEPROM life.  
 
-Project: EEPROM
+### Project: EEPROM
 
 The project uses the EEPROM on Arduino UNO to save the state of LED.  
 It uses EEPROM.update and EEPROM.Read.
