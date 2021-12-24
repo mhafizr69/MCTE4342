@@ -1,4 +1,4 @@
 
 # Design Choices
 
-![Comparison between controllers](/Comparison Table)
+![Comparison between controllers](/Comparison%20Table)
