@@ -6,4 +6,4 @@ All the controllers have their own advantages to one another depending on the ta
 This table shows the specifications comparison between popular type of controllers.
 
 
-![Comparison between controllers](./ComparisonTable.png)
+![Comparison between controllers](./ControllerComparisonTable.png)
