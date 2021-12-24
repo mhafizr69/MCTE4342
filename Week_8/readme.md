@@ -25,7 +25,7 @@
 - EEPROM Put: Put values in EEPROM using variable semantics.  
 - EEPROM Update: Stores values read from A0 into EEPROM, writing the value only if different, to increase EEPROM life.  
 
-### Project: Drum_Winder_V8
+### Project: EEPROM
 
 This project uses EEPROM on Arduino UNO to save the state of the stepper motor.
 
