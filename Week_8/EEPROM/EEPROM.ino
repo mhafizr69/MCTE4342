@@ -1,55 +1,37 @@
 #include <EEPROM.h>
 
+#define button 12
+#define led 3
+
+int state;
+
 void setup() {
+  
   Serial.begin(9600);
   
- //Remember state of direction for low torque motor before arduino turned off or reset
+  pinMode(button,INPUT_PULLUP);
+  pinMode(led,OUTPUT);
+  
+ //Read value from address 0 of EEPROM
   state = EEPROM.read(0);
-  //Remember state of direction for low torque motor before arduino turned off or reset
-  x = EEPROM.read(1); 
 
 }
 
 void loop() {
+ 
+  digitalWrite(led,state);
 
-  flipCheck(); //Check if limit switch is pressed
+  int val = digitalRead(button);
   
-  if (digitalRead(Button1) == LOW)
+  if (val == LOW)
   {
-      if (x == LOW){
         state = !state;
-      }
-    
-      rollout(100, 800);
+
   }
-
-  if (digitalRead(Button2) == LOW)
-  {
-      if (x == LOW){
-        state = !state;
-      }
-
-      rollout(250, 800);
-  }
-
-  if (digitalRead(Button3) == LOW)
-  {
-      if (x == HIGH){
-        state = !state;
-      }
-        
-      rollin(250, 800);
-  }
-
-  if (digitalRead(Button4) == LOW)
-  {
-      if (x == HIGH){
-        state = !state;
-      }
-      rollin(100, 800);
-  }
-
-  EEPROM.update(0,state); //Save the value of "state" inside EEPROM address 0
-  EEPROM.update(1,x); ////Save the value of "x" inside EEPROM address 1
+  
+  //Serial.println(state);
+  
+  //Save the value of "state" inside EEPROM address 0
+  EEPROM.update(0,state); 
   
 }
