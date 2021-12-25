@@ -3,8 +3,8 @@
 
 This repository is for the weekly projects for ESD course.
 
-## Week 4
-
+## Week 4 GPIO
+Contains examples working with LEDs.
 
 ## Week 5
 
