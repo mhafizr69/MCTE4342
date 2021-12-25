@@ -22,7 +22,7 @@ Contains an example utilising the EEPROM on the Arduino UNO.
 Contains programs to reduce power consumption for Arduino UNO.
 
 ## Week 10
-
+Contains examples for DC motor, Servo motor, and Stepper motor.
 
 ## Week 11
 Contains a script to communicate to Arduino UNO via Arduino IDE.
