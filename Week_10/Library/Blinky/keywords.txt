@@ -1,0 +1,23 @@
+#######################################
+# Syntax Coloring Map For Blinky
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+Blinky	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+Blinky			KEYWORD2
+Initialize		KEYWORD2
+ChangeOnOffTimes	KEYWORD2
+Refresh			KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
