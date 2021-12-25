@@ -1,5 +1,5 @@
 # Timer Ports
-Learn how to control the Timers in controller ATMEGA 328 AKA PWM function
+Learn how to control the Timers in controller ATMEGA 328 A.K.A PWM function
 
 ## Example 1
 Produce a PWM signal with 50% duty cycle on Channel B of timer0 in Fast PWM mode with pre-scaler value of 64.
