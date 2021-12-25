@@ -26,26 +26,16 @@ Reason of Arduino having high power consumption:
 
 ### Software-based
 
-#### Turning off external devices while they are not being used
+- #### Turning off external devices while they are not being used
 
-#### Setting unused GPIO pins as output
+- #### [Setting unused GPIO pins as output](./Set_Pins_Output/Set_Pins_Output.ino)
 
-[Set pins to outputs](./Set_Pins_Output/Set_Pins_Output.ino)
+- #### [Turning off ADC](./Turn_Off_ADC/Turn_Off_ADC.ino)
 
-#### Turning off ADC
+- #### [Turning off analog comparator](./Turn_Off_AnalogComparator/Turn_Off_AnalogComparator.ino)
 
-[Turn off Arduino ADC](./Turn_Off_ADC/Turn_Off_ADC.ino)
+- #### [Sleeping](./Sleep/Sleep.ino)
 
-#### Turning off analog comparator
+- #### [Turning off brown-out detector](./Deep_Sleep/Deep_Sleep.ino)
 
-[Turn off Arduino ADC & Analog comparator](./Turn_Off_AnalogComparator/Turn_Off_AnalogComparator.ino)
-
-#### Sleeping
-
-[Let the Arduino's CPU sleep](./Sleep/Sleep.ino)
-
-#### Turning off brown-out detector
-
-[Let the Arduino's CPU and brown-out detector sleep](./Deep_Sleep/Deep_Sleep.ino)
-
-#### Turning off timers
+- #### Turning off timers
