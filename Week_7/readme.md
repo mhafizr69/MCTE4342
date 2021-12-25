@@ -23,6 +23,6 @@ This project uses the interrupt feature for PORT B of the Arduino.
 The LED will change its state whenever there is a change of logic from PORTB 4.
 Since a push button is used, a delay is needed to avoid the CPU reading multiple toggling of logic level.
 
-<img scr = "CircuitDiagram.heic" height = "400" width = "400">
+<img scr = "CircuitDiagram.png" height = "400" width = "400">
 
 Youtube Link: 
