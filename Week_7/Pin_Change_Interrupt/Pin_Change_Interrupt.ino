@@ -31,10 +31,19 @@ void loop() {
     //Serial.println(state); //To troubleshoot state
     changes = 0; //reset the interrupt variable
   }
+
+  Sleep();
   
 }
 
 ISR (PCINT0_vect)
 {
   changes = 1;
+}
+
+void Sleep()
+{
+  unsigned char *smcr = (unsigned char*)0x53;
+  *smcr = 5; //Sleep mode = POWER DOWN, Sleep Enable = True
+  asm("sleep"); //Invoke in line assembler to sleep
 }
