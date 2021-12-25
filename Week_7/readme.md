@@ -25,6 +25,7 @@ Since a push button is used, a delay is needed to avoid the CPU reading multiple
 
 <details>
   <summary>Circuit Diagram</summary>
+  
   ![Circuit Diagram](./CircuitDiagram.png)
 </details>  
   
