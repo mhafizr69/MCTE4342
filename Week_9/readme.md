@@ -7,23 +7,32 @@
 
 ### Hardware-based
 
-#### Take the ATmega328p out of Arduino (Easiest of all)
+<details>
+<summary>Take the ATmega328p out of Arduino (Easiest of all)</summary>
 
-<img src = "StandAlone.png" width="100" height"100"> <img src="StandAloneCircuit.png" width="100" height"100">
+<img src="StandAlone.png" width="400" height="400"> <img src="StandAloneCircuit.png" width="400" height="400">
 
 Reason of Arduino having high power consumption:  
 - Arduino uses a linear voltage regulator. Linear voltage regulators are known to be very inefficient (Around 70% efficiency)
 - Arduino has onboard LEDs that consume power.
 - Arduino has ATmega16u that handles USB-Serial conversion. It consumes power.  
+</details>
+  
+  
+<details>
+<summary>Use efficient voltage regulators (or run directly from batteries if possible)</summary>
+<img src = "BuckBoostConverter.png" width="300" height="300">
+</details>
+  
+<details>
+<summary>Lower the CPU clock speed and Lower the operating voltage</summary>
 
-### Use efficient voltage regulators (or run directly from batteries if possible)
+- Reducing the operating voltage without reducing clock speed appropriately could make the CPU behave erratically.  
+- Reduce both clock speed and operating voltage to lower current consumption.  
 
-### Lower the CPU clock speed and Lower the operating voltage
-- Reducing the operating voltage without reducing clock speed appropriately could make the CPU behave erratically.
-- Reduce both clock speed and operating voltage to lower current consumption.
-
-<img src = "ClockvVolt.png" width="100" height"100">
-
+<img src="ClockvVolt.png" width="720" height="400">
+</details> 
+  
 ### Software-based
 
 - #### Turning off external devices while they are not being used
