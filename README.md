@@ -10,7 +10,7 @@ Contains examples working with LEDs.
 Contains examples utilising the ADC in Arduino UNO.
 
 ## Week 6  
-Examples on using timer ports on Arduino UNO.
+Contains examples on using timer ports on Arduino UNO.
 
 ## Week 7  
 Contains an example utilising the Port Interrupt on Arduino UNO.
