@@ -3,6 +3,9 @@
 
 This repository is for the weekly projects for ESD course.
 
+## Webinar Video
+https://youtu.be/NmzAkETQDtA
+
 ## Week 4 GPIO  
 Contains examples working with LEDs.
 
