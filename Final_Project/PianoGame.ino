@@ -51,23 +51,23 @@ int Spider[] = {
 };
 
 // Dedicating pins to variables
-const int Bu1 = 12; //2;
-const int Bu2 = 11; //3;
-const int Bu3 = 10; //4;
-const int Bu4 = 8; //5;
-const int Bu5 = 7; //6;
-const int Bu6 = 6; //7;
-const int Bu7 = 4; //8;
-const int buzzer = 3; //9;
+const int Bu1 = 12; 
+const int Bu2 = 11;
+const int Bu3 = 10; 
+const int Bu4 = 8; 
+const int Bu5 = 7; 
+const int Bu6 = 6; 
+const int Bu7 = 4; 
+const int buzzer = 3; 
 const int poten = A3;
 
-const int LED1 = 13; //10;
-const int LED2 = A0; //11;
-const int LED3 = 9; //12;
-const int LED4 = A1; //13;
-const int LED5 = A2; //A3;
-const int LED6 = 5; //A2;
-const int LED7 = 2; //A1;
+const int LED1 = 13; 
+const int LED2 = A0; 
+const int LED3 = 9; 
+const int LED4 = A1; 
+const int LED5 = A2; 
+const int LED6 = 5; 
+const int LED7 = 2; 
 
 // Change to 0.5 for a slower version of the song, 1.25 for a faster version
 const float songSpeed = 1.0;
