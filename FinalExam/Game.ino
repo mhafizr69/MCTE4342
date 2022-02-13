@@ -6,7 +6,7 @@
 #define lcd_size_y 2
 LiquidCrystal_I2C lcd (0x27, lcd_size_x, lcd_size_y);
 
-// Initialize the notes frequency for buzzer.
+// Initialize the music notes frequency for buzzer.
 #define NOTE_C 523
 #define NOTE_D 587
 #define NOTE_E 659
@@ -15,10 +15,11 @@ LiquidCrystal_I2C lcd (0x27, lcd_size_x, lcd_size_y);
 #define NOTE_A 880
 #define NOTE_B 988
 
-int selectedSong[] = {};
+int selectedSong[] = {}; //Array used in songPlay function to assign song array chosen into a general array.
 
-int Mary[] = { 
-
+//Song arrays. Can add more songs.
+int Mary[] = 
+{ 
       NOTE_E, NOTE_D, NOTE_C, NOTE_D, NOTE_E, NOTE_E, NOTE_E,
       NOTE_D, NOTE_D, NOTE_D, NOTE_E, NOTE_G, NOTE_G,
       NOTE_E, NOTE_D, NOTE_C, NOTE_D, NOTE_E, NOTE_E, NOTE_E,
@@ -26,8 +27,8 @@ int Mary[] = {
   
 };
 
-int Star[] = {
-
+int Star[] = 
+{
       NOTE_C, NOTE_C, NOTE_G, NOTE_G, NOTE_A, NOTE_A, NOTE_G,
       NOTE_F, NOTE_F, NOTE_E, NOTE_E, NOTE_D, NOTE_D, NOTE_C,
       NOTE_G, NOTE_G, NOTE_F, NOTE_F, NOTE_E, NOTE_E, NOTE_D,
@@ -37,8 +38,8 @@ int Star[] = {
   
 };
 
-int Spider[] = {
-
+int Spider[] = 
+{
       NOTE_C, NOTE_C, NOTE_C, NOTE_D, NOTE_E, NOTE_E,
       NOTE_E, NOTE_D, NOTE_C, NOTE_D, NOTE_E, NOTE_C,
       NOTE_E, NOTE_E, NOTE_F, NOTE_G, NOTE_G, NOTE_F, NOTE_E,
@@ -72,18 +73,12 @@ const int LED7 = 2;
 // Change to 0.5 for a slower version of the song, 1.25 for a faster version
 const float songSpeed = 1.0;
 
-// Song selected
-int noSong = 0;
-
 // Notes Played
 char *note[] = {"B", "A", "G", "F", "E", "D", "C"};
 
-int gmode;
-bool played = false;
+int gmode; //Store the game mode selected by user
 
-char array1[] = "Mary had a little lamb";
-char array2[] = "Twinkle, Twinkle, Little Star";
-char array3[] = "The Itsy Bitsy Spider";
+bool played = false; //Check if user repeats the game or not
 
 // States of button
 int s1, s2, s3, s4, s5, s6, s7, var;
@@ -93,6 +88,8 @@ void setup() {
   Serial.begin(9600);
   lcd.init(); // Initialize the LCD
   lcd.backlight(); // Turn on the backlight of the LCD
+      
+  // Set pins to either input or output
   pinMode(Bu1, INPUT_PULLUP);
   pinMode(Bu2, INPUT_PULLUP);
   pinMode(Bu3, INPUT_PULLUP);
@@ -109,20 +106,21 @@ void setup() {
   pinMode(LED6, OUTPUT);
   pinMode(LED7, OUTPUT);
 
-  lcd.setCursor(0,0); 
+  lcd.setCursor(0,0); // Set to print from column 0, row 0
   lcd.print("Hello!! ^_^");
-  lcd.setCursor(0,1);
+  lcd.setCursor(0,1); // Set to print from column 0, row 1
   lcd.print("Future Pianist!!");
-  delay(2000);
-  lcd.clear();
+  delay(2000); // delay the process by 2000ms / 2s
+  lcd.clear(); // Clear the LCD display
   
-  Song();
+  Song(); // Jump to game mode selection function
 }
 
 void loop() {
   
   lcd.clear();
-  switch(gmode){
+  switch(gmode)
+  {
     case (1): played = true; songPlay(); break;
     case (2): played = true; songPlay(); break;
     case (3): played = true; songPlay(); break;
@@ -160,17 +158,19 @@ int Song(){
   lcd.clear();
   
   int flag = 0; // Check if user selected a song or not
-  gmode = 0;
+  gmode = 0; //Set game mode to none
   
+  //Loop until a game mode is selected.
   do
   {
-    digitalWrite(LED1, HIGH);
-    int potVal = analogRead(poten);
-    potVal = map(potVal, 0, 1023, 1, 5);
-    Serial.print(potVal);
-    int currentVal = potVal;
+    digitalWrite(LED1, HIGH); //Turn on the LED of button ‘B’
+    int potVal = analogRead(poten); // Read potentiometer.
+    potVal = map(potVal, 0, 1023, 1, 5); // Map potentiometer to value of 1 to 5
+    //Serial.print(potVal); // To check potentiometer reading
+    int currentVal = potVal; // To check if there is difference in potentiometer value
     int preVal;
     
+    // Clear LCD if there is change in potentiometer value.
     if (currentVal!= preVal)
     {
       lcd.setCursor(0,0);
@@ -183,13 +183,13 @@ int Song(){
       {
         lcd.print(" ");
       }
-      preVal = currentVal;
+      preVal = currentVal; // Set current potentiometer reading as previous potentiometer reading.
     }
     
-    int select = digitalRead(Bu1);
-    //Serial.print('\t');
-    //Serial.println(select);
+    int select = digitalRead(Bu1); // Read button ‘B’ 
+    //Serial.println(select); // To check reading of button 'B'
     
+    // Switch for displaying mode selection on LCD
     switch(potVal)
     {
       case 1: 
@@ -220,22 +220,25 @@ int Song(){
       default: break;  
     }
     
+    // Check if button ‘B’ is pushed.
     if (select == 0)
     {
       if(potVal==5){
-        potVal=4;}
-      gmode = potVal;
-      flag = 1;
+        potVal=4;} // Set value 5 of potentiometer to 4.
+      gmode = potVal; // Set game to selected mode.
+      flag = 1; // Set flag since mode has been selected.
     }
     
-  }while(flag == 0);
+  }while(flag == 0); // Exit "do" loop if game mode has been selected.
   
-  digitalWrite(LED1, LOW);
+  digitalWrite(LED1, LOW); // Turn off the LED on button ‘B’
 
+  // Check if the game has been repeated or not.
   if (played == true)
-    loop();
+    loop(); // Go back to main loop.
 }
 
+// The function that loops infinitely if free play mode is selected.
 void freePlay(){
 
   lcd.clear();
@@ -261,8 +264,9 @@ void freePlay(){
   
   do{
 
-    var = 0;
+    var = 0; // Set note played to none
     
+    // Check and set the notes played
     s1 = digitalRead(Bu1);
     s2 = digitalRead(Bu2);
     s3 = digitalRead(Bu3);
@@ -313,16 +317,16 @@ void freePlay(){
       digitalWrite(LED6, LOW);digitalWrite(LED7, LOW);noTone(buzzer); break;
     }
 
-    //lcd.clear(); // Clear the LCD
-    lcd.setCursor(2,0); // Set to print from column 0, row 0
+    // Display the notes played on LCD
+    lcd.setCursor(2,0); 
     lcd.print("Note Played");
     
     if (var > 0){
-      lcd.setCursor(7,1); // Set to print from column 0, row 1
+      lcd.setCursor(7,1); 
       lcd.print(note[var-1]);
     }
     else{
-      lcd.setCursor(7,1); // Set to print from column 0, row 1
+      lcd.setCursor(7,1);
       lcd.print(" ");
     }
     
@@ -330,35 +334,37 @@ void freePlay(){
   
 }
 
+// Loop for guided song mode.
 void songPlay(){
 
   int i, j, totalNotes;
   
+  // Switch for selecting the song selected.
   switch(gmode){
     case 1: 
-      namePrint(gmode);
-      totalNotes = sizeof(Mary) / sizeof(int);
+      namePrint(gmode); // Call function to display name of song.
+      totalNotes = sizeof(Mary) / sizeof(int); // Calculate the length of notes for song selected.
       for (i = 0; i<totalNotes; i++)
       {
-         selectedSong[i] = Mary[i];
+         selectedSong[i] = Mary[i]; // Assign song notes into general array.
       }
       break;
 
     case 2:
-      namePrint(gmode);
-      totalNotes = sizeof(Star) / sizeof(int);
+      namePrint(gmode); // Call function to display name of song.
+      totalNotes = sizeof(Star) / sizeof(int); // Calculate the length of notes for song selected.
       for (i = 0; i<totalNotes; i++)
       {
-         selectedSong[i] = Star[i];
+         selectedSong[i] = Star[i]; // Assign song notes into general array.
       }
       break;
 
     case 3:
-      namePrint(gmode);
-      totalNotes = sizeof(Spider) / sizeof(int);
+      namePrint(gmode); // Call function to display name of song.
+      totalNotes = sizeof(Spider) / sizeof(int); // Calculate the length of notes for song selected.
         for (i = 0; i<totalNotes; i++)
         { 
-          selectedSong[i] = Spider[i];
+          selectedSong[i] = Spider[i]; // Assign song notes into general array.
         }
       break;
 
@@ -366,11 +372,14 @@ void songPlay(){
   }
 
       delay(1000);
+      
+      // Loop to play each note of the selected song.
       for(i = 0; i < totalNotes; i++)
       {
-        bool noteFlag = false;
-        const int currentNote = selectedSong[i];
+        bool noteFlag = false; // Set flag as false and will turn true if button pressed is same as current note.
+        const int currentNote = selectedSong[i]; // Assign the current note of selected song to a temporary variable.
 
+        // A loop that will break only when the current note is same with button pressed.
         do
         {
           switch (currentNote){
@@ -485,11 +494,12 @@ void songPlay(){
         
         }while(noteFlag==false);
       
-        tone(buzzer, selectedSong[i], 500);
+        tone(buzzer, selectedSong[i], 500); // Play the tone of current note.
         delay(500);
         
       }
 
+      // The section prompts the user if they want to repeat the selected guided song.
       delay(500);
       lcd.clear();
       lcd.setCursor(0,0); 
@@ -506,6 +516,7 @@ void songPlay(){
       digitalWrite(LED1, HIGH);
       digitalWrite(LED2, HIGH);
       
+      // A loop that that will break when user made the decision to repeat song or not.
       do
       {        
         s1 = digitalRead(Bu1);
@@ -515,7 +526,6 @@ void songPlay(){
           digitalWrite(LED1, LOW);
           digitalWrite(LED2, LOW);
           Song(); 
-          //gameFlag = false;
         }
           
 
@@ -531,6 +541,7 @@ void songPlay(){
       
 }
 
+// Function to display names of song depending on the song selected by user.
 void namePrint(int x){
   
     switch(gmode){
