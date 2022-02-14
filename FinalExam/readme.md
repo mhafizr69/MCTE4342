@@ -2,7 +2,7 @@
 
 ## Setup
 
-<img src="https://github.com/mhafizr69/MCTE4342/blob/main/Week_4/Example_8/Setup_8.png">
+<img src="/FinalExam/20220212_130305141_iOS.jpg">
 
 ## Demonstration video
 https://youtu.be/m1WVMHcm3iU
