@@ -2,7 +2,7 @@
 
 ## Setup
 
-<img src="/Final Project/20220212_130305141_iOS.jpg">
+<img src="/Final Project/Prototype.jpg">
 
 ## Demonstration video
 In the video, the backlight LED is turned off since it made the words displayed unreadable.  
